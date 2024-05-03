@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllArticles } from "../api/api";
+import Article from "./Article";
 
 function ArticleList({ topic }) {
   const [isError, setIsError] = useState(false);
@@ -21,17 +22,10 @@ function ArticleList({ topic }) {
 
   return (
     <>
-      <h1>List of Articles</h1>
+      <h1>Articles on {topic ? topic : "everything"}</h1>
       <ul className="article-list">
         {articles.map((article) => {
-          return (
-            <li key={article.article_id}>
-              <h2>{article.title}</h2>
-              <img src={article.article_img_url} />
-              <p>author: {article.author}</p>
-              <p>topic: {article.topic}</p>
-            </li>
-          );
+          return <Article article={article} />;
         })}
       </ul>
     </>
