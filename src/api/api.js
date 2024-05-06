@@ -13,3 +13,7 @@ export function getAllArticles(topic) {
   }
   return ncNewsAPI.get("/articles", params);
 }
+
+export function getUsername(username) {
+  return ncNewsAPI.get(`/users/${username}`);
+}

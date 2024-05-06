@@ -22,7 +22,9 @@ function ArticleList({ topic }) {
 
   return (
     <>
-      <h1>Articles on {topic ? topic : "everything"}</h1>
+      <h1 className="article-list-title">
+        Articles on {topic ? topic : "everything"}
+      </h1>
       <ul className="article-list">
         {articles.map((article) => {
           return <Article article={article} />;

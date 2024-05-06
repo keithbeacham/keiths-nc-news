@@ -2,12 +2,15 @@ import { Link } from "react-router-dom";
 
 function Welcome({ setUsername }) {
   return (
-    <>
-      <h1>Welcome Page</h1>
-      <button onClick={() => setUsername("grumpy19")}>
+    <div className="welcome-page">
+      <p className="welcome-title">Welcome to NC News</p>
+      <button
+        className="welcome-button"
+        onClick={() => setUsername("grumpy19")}
+      >
         <Link to="/articles">articles</Link>
       </button>
-    </>
+    </div>
   );
 }
 

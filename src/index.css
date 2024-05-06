@@ -1,24 +1,105 @@
 :root {
 }
-
+p {
+  margin: 0;
+  padding: 0;
+}
 .header-container {
   width: 100%;
-  background-color: bisque;
+  background-color: rgb(240, 238, 238);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-
 .header-button {
   display: inline-block;
-  padding: 5px;
+  padding: 5px 10px 5px 10px;
   text-decoration: none;
+  background-color: white;
+  border-radius: 5px;
 }
-
+.user-profile-page {
+}
+.user-profile-text {
+  text-align: center;
+  font-size: 1em;
+  padding: 5px 0 5px 0;
+}
+.user-profile-image {
+  display: block;
+  padding: 20px 0 0 0;
+  margin: 0 auto 0 auto;
+}
 body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
+
+.article-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.article-list-title {
+  text-align: center;
+}
+.article-item {
+  width: 250px;
+  height: 380px;
+  background-color: bisque;
+  margin: 5px;
+  padding: 0 20px 20px 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 7px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.article-title {
+  margin: 0;
+}
+.article-image {
+  width: 250px;
+  height: max 380px;
+  border-radius: 5px;
+}
+.article-text {
+  padding: 5px 5px 5px 5px;
+  margin: 0;
+}
+.article-topic {
+  width: 100%;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.2em;
+  background-color: aquamarine;
+  padding: 5px 0 5px 0;
+  border-radius: 5px;
+}
+.welcome-page {
+  background-image: url("./images/leeds.png");
+  background-size: cover;
+  background-color: rgb(3, 3, 121);
+  width: 300px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.welcome-title {
+  font-size: 1.8em;
+  text-align: center;
+  color: rgb(252, 252, 33);
+  text-shadow: 2px 2px 2px black;
+  padding: 10px;
+}
+.welcome-button {
+  font-size: 1em;
+  padding: 10px;
 }
