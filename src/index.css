@@ -1,8 +1,29 @@
 :root {
 }
-p {
+p ul {
   margin: 0;
   padding: 0;
+}
+.welcome-page {
+  background-image: url("./images/leeds.png");
+  background-size: cover;
+  background-color: rgb(3, 3, 121);
+  width: 300px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.welcome-title {
+  font-size: 1.8em;
+  text-align: center;
+  color: rgb(252, 252, 33);
+  text-shadow: 2px 2px 2px black;
+  padding: 10px;
+}
+.welcome-button {
+  font-size: 1em;
+  padding: 10px;
 }
 .header-container {
   width: 100%;
@@ -47,6 +68,12 @@ body {
 .article-list-title {
   text-align: center;
 }
+.article-page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  max-height: 600px;
+}
 .article-item {
   width: 250px;
   background-color: bisque;
@@ -56,7 +83,6 @@ body {
   box-shadow: 0 3px 7px 0px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
   position: relative;
 }
@@ -82,26 +108,39 @@ body {
   border-radius: 5px;
 }
 .article-body {
-  padding: 20px 5px 20px 5px;
+  padding: 5px 5px 0 5px;
+  margin: 0;
 }
-.welcome-page {
-  background-image: url("./images/leeds.png");
-  background-size: cover;
-  background-color: rgb(3, 3, 121);
-  width: 300px;
-  height: 500px;
+
+.comments-page {
+  width: 250px;
+  background-color: bisque;
+  margin: 5px;
+  padding: 0 20px 20px 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 7px 0px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  overflow: auto;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
-.welcome-title {
-  font-size: 1.8em;
+.comment-item {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.comment-author {
+  margin: 10px 0 0 0;
+  font-weight: bold;
+}
+.comment-body {
+  margin: 2px 0 5px 0;
+}
+.comment-votes {
+  margin: 0 0 10px 0;
   text-align: center;
-  color: rgb(252, 252, 33);
-  text-shadow: 2px 2px 2px black;
-  padding: 10px;
-}
-.welcome-button {
-  font-size: 1em;
-  padding: 10px;
+  font-weight: bold;
+  color: blue;
 }

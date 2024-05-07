@@ -21,3 +21,7 @@ export function getUsername(username) {
 export function getArticle(article_id) {
   return ncNewsAPI.get(`/articles/${article_id}`);
 }
+
+export function getComments(article_id) {
+  return ncNewsAPI.get(`/articles/${article_id}/comments`);
+}
