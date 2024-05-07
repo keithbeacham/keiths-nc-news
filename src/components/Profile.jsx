@@ -8,13 +8,12 @@ function Profile({ username }) {
   useEffect(() => {
     getUsername(username)
       .then((response) => {
-        console.log(response);
         setUser(response.data.user);
       })
       .catch((error) => {
         setIsError(true);
       });
-  });
+  }, []);
   return (
     <div className="user-profile">
       <h1>Your user profile page</h1>

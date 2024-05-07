@@ -4,13 +4,19 @@ function Header() {
   return (
     <div className="header-container">
       <button className="header-button" key="profile">
-        <Link to="/profile">profile</Link>
+        <Link to="/profile" style={{ textDecoration: "none" }}>
+          profile
+        </Link>
       </button>
       <button className="header-button" key="home">
-        <Link to="/articles">home</Link>
+        <Link to="/articles" style={{ textDecoration: "none" }}>
+          articles
+        </Link>
       </button>
       <button className="header-button" key="topics">
-        <Link to="/topics">topics</Link>
+        <Link to="/topics" style={{ textDecoration: "none" }}>
+          topics
+        </Link>
       </button>
     </div>
   );

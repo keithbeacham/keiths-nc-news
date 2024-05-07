@@ -49,7 +49,6 @@ body {
 }
 .article-item {
   width: 250px;
-  height: 380px;
   background-color: bisque;
   margin: 5px;
   padding: 0 20px 20px 20px;
@@ -81,6 +80,9 @@ body {
   background-color: aquamarine;
   padding: 5px 0 5px 0;
   border-radius: 5px;
+}
+.article-body {
+  padding: 20px 5px 20px 5px;
 }
 .welcome-page {
   background-image: url("./images/leeds.png");

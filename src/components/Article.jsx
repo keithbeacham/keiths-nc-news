@@ -1,12 +1,39 @@
-function Article({ article }) {
+import { useState, useEffect } from "react";
+import ArticleItem from "./ArticleItem";
+import { getArticle } from "../api/api";
+import { useParams } from "react-router-dom";
+
+function Article() {
+  const [article, setArticle] = useState({});
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setisLoading] = useState(true);
+  const { article_id } = useParams();
+
+  useEffect(() => {
+    setIsError(false);
+    setisLoading(true);
+    getArticle(article_id)
+      .then((response) => {
+        setArticle(response.data.article);
+        setisLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setIsError(true);
+        setisLoading(false);
+      });
+  }, []);
+
   return (
-    <li key={article.article_id} className="article-item">
-      <p className="article-topic">{article.topic}</p>
-      <h2 className="article-title">{article.title}</h2>
-      <img className="article-image" src={article.article_img_url} />
-      <p className="article-text">by {article.author}</p>
-    </li>
+    <>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : isError ? (
+        <p>Oops - something has gone wrong !</p>
+      ) : (
+        <ArticleItem article={article} />
+      )}
+    </>
   );
 }
-
 export default Article;
