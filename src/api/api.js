@@ -25,3 +25,7 @@ export function getArticle(article_id) {
 export function getComments(article_id) {
   return ncNewsAPI.get(`/articles/${article_id}/comments`);
 }
+
+export function patchArticle(article_id, inc_votes) {
+  return ncNewsAPI.patch(`/articles/${article_id}`, { inc_votes });
+}
