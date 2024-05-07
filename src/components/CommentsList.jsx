@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getComments } from "../api/api";
 import CommentItem from "./CommentItem";
+import AddComment from "./AddComment";
 
 function CommentsList({ article_id }) {
   const [comments, setComments] = useState([]);
@@ -40,6 +41,9 @@ function CommentsList({ article_id }) {
               );
             })}
           </ul>
+          <div className="add-comment-page">
+            <AddComment article_id={article_id} />
+          </div>
         </div>
       )}
     </>
