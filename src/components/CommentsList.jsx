@@ -3,10 +3,12 @@ import { getComments } from "../api/api";
 import CommentItem from "./CommentItem";
 import AddComment from "./AddComment";
 
-function CommentsList({ article_id }) {
+function CommentsList({ article_id, username }) {
   const [comments, setComments] = useState([]);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [updateComments, setUpdateComments] = useState(false);
+  const [commentIsAdded, setCommentIsAdded] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -21,7 +23,7 @@ function CommentsList({ article_id }) {
         setIsError(true);
         setIsLoading(false);
       });
-  }, []);
+  }, [commentIsAdded]);
 
   return (
     <>
@@ -42,7 +44,12 @@ function CommentsList({ article_id }) {
             })}
           </ul>
           <div className="add-comment-page">
-            <AddComment article_id={article_id} />
+            <AddComment
+              article_id={article_id}
+              username={username}
+              commentIsAdded={commentIsAdded}
+              setCommentIsAdded={setCommentIsAdded}
+            />
           </div>
         </div>
       )}

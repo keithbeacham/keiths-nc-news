@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import CommentsList from "./CommentsList";
 import ArticleBody from "./ArticleBody";
 
-function Article() {
+function Article({ username }) {
   const [article, setArticle] = useState({});
   const [isError, setIsError] = useState(false);
   const [isLoading, setisLoading] = useState(true);
@@ -38,7 +38,7 @@ function Article() {
             <ArticleHeader article={article} />
             <ArticleBody article={article} />
           </span>
-          <CommentsList article_id={article.article_id} />
+          <CommentsList article_id={article.article_id} username={username} />
         </span>
       )}
     </>
