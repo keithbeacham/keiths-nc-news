@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Header from "./components/Header";
 import Welcome from "./components/Welcome";
 import ArticleList from "./components/ArticleList";
 import Topics from "./components/Topics";
 import Profile from "./components/Profile";
+import Article from "./components/Article";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -16,7 +17,9 @@ function App() {
         <>
           <Header />
           <Routes>
+            <Route path="/home" element={<ArticleList topic={topic} />} />
             <Route path="/articles" element={<ArticleList topic={topic} />} />
+            <Route path="/article/:article_id" element={<Article />} />
             <Route path="/profile" element={<Profile username={username} />} />
             <Route path="/topics" element={<Topics />} />
           </Routes>

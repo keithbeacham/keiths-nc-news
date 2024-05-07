@@ -17,3 +17,7 @@ export function getAllArticles(topic) {
 export function getUsername(username) {
   return ncNewsAPI.get(`/users/${username}`);
 }
+
+export function getArticle(article_id) {
+  return ncNewsAPI.get(`/articles/${article_id}`);
+}
