@@ -3,13 +3,17 @@ import { getComments } from "../api/api";
 import CommentItem from "./CommentItem";
 import AddComment from "./AddComment";
 
-function CommentsList({ article_id, username }) {
+function CommentsList({ article_id }) {
   const [comments, setComments] = useState([]);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [updateComments, setUpdateComments] = useState(false);
-  const [commentIsAdded, setCommentIsAdded] = useState(false);
+  const [commentHasBeenDeleted, setCommentHasBeenDeleted] = useState(false);
+  const [commentHasBeenAdded, setCommentHasBeenAdded] = useState(false);
 
+  if (commentHasBeenAdded && commentHasBeenAdded === commentHasBeenDeleted) {
+    setCommentHasBeenAdded(false);
+    setCommentHasBeenDeleted(false);
+  }
   useEffect(() => {
     setIsLoading(true);
     setIsError(false);
@@ -19,11 +23,10 @@ function CommentsList({ article_id, username }) {
         setIsLoading(false);
       })
       .catch((error) => {
-        console.log(error);
         setIsError(true);
         setIsLoading(false);
       });
-  }, [commentIsAdded]);
+  }, [commentHasBeenAdded, commentHasBeenDeleted]);
 
   return (
     <>
@@ -38,7 +41,10 @@ function CommentsList({ article_id, username }) {
             {comments.map((comment) => {
               return (
                 <li key={comment.comment_id} className="comment-item">
-                  <CommentItem comment={comment} />
+                  <CommentItem
+                    comment={comment}
+                    setCommentHasBeenDeleted={setCommentHasBeenDeleted}
+                  />
                 </li>
               );
             })}
@@ -46,9 +52,8 @@ function CommentsList({ article_id, username }) {
           <div className="add-comment-page">
             <AddComment
               article_id={article_id}
-              username={username}
-              commentIsAdded={commentIsAdded}
-              setCommentIsAdded={setCommentIsAdded}
+              commentHasBeenAdded={commentHasBeenAdded}
+              setCommentHasBeenAdded={setCommentHasBeenAdded}
             />
           </div>
         </div>

@@ -1,17 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getUsername } from "../api/api";
+import { UserContext } from "../contexts/User";
 
-function Profile({ username }) {
+function Profile() {
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [user, setUser] = useState({});
+  const [userProfile, setUserProfile] = useState({});
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     setIsLoading(true);
     setIsError(false);
-    getUsername(username)
+    getUsername(user)
       .then((response) => {
-        setUser(response.data.user);
+        setUserProfile(response.data.user);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -21,20 +23,29 @@ function Profile({ username }) {
   }, []);
 
   return (
-    <div className="user-profile">
-      <h1>Your user profile page</h1>
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : isError ? (
-        <p>Oops - something has gone wrong !</p>
-      ) : (
-        <>
-          <p className="user-profile-text">username: {user.username}</p>
-          <p className="user-profile-text">name: {user.name}</p>
-          <img src={user.avatar_url} className="user-profile-image" />
-        </>
-      )}
-    </div>
+    <>
+      {user ? (
+        <div className="user-profile">
+          <h1>Your user profile page</h1>
+          {isLoading ? (
+            <p>Loading...</p>
+          ) : isError ? (
+            <p>Oops - something has gone wrong !</p>
+          ) : (
+            <>
+              <p className="user-profile-text">
+                username: {userProfile.username}
+              </p>
+              <p className="user-profile-text">name: {userProfile.name}</p>
+              <img
+                src={userProfile.avatar_url}
+                className="user-profile-image"
+              />
+            </>
+          )}
+        </div>
+      ) : null}
+    </>
   );
 }
 
