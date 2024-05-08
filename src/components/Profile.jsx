@@ -14,7 +14,6 @@ function Profile() {
     getUsername(user)
       .then((response) => {
         setUserProfile(response.data.user);
-        console.log("userProfile", userProfile);
         setIsLoading(false);
       })
       .catch((error) => {

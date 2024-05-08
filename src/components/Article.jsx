@@ -24,7 +24,6 @@ function Article() {
         setisLoading(false);
       })
       .catch((error) => {
-        console.log(error);
         setIsError(true);
         setisLoading(false);
       });

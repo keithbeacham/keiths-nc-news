@@ -154,18 +154,34 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  background-color: rgb(206, 254, 238);
+  border-radius: 5px;
 }
-.comment-author {
-  margin: 10px 0 0 0;
+.comment-author-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(194, 238, 246);
+}
+.comment-author-text {
+  padding: 5px 5px 5px 5px;
   font-weight: bold;
+}
+.comment-delete-button {
+  height: 28px;
+  margin: 0;
+  border-radius: 5px;
 }
 .comment-body {
-  margin: 2px 0 5px 0;
+  margin: 2px 5px 2px 5px;
 }
 .comment-votes {
-  margin: 0 0 10px 0;
+  margin: 0 0 15px 0;
   text-align: center;
   font-weight: bold;
+  background-color: rgb(194, 238, 246);
   color: blue;
 }
 .add-comment-page {

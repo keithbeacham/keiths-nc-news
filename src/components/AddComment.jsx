@@ -3,7 +3,11 @@ import { postComment } from "../api/api";
 import AddCommentForm from "./AddCommentForm";
 import { UserContext } from "../contexts/User";
 
-function AddComment({ article_id, commentIsAdded, setCommentIsAdded }) {
+function AddComment({
+  article_id,
+  commentHasBeenAdded,
+  setCommentHasBeenAdded,
+}) {
   const { user } = useContext(UserContext);
   const [commentBody, setCommentBody] = useState("");
   const [isPatching, setIsPatching] = useState(false);
@@ -19,10 +23,10 @@ function AddComment({ article_id, commentIsAdded, setCommentIsAdded }) {
       setIsPatching(true);
       setIsError(false);
       postComment(article_id, { username: user, body: commentBody })
-        .then(() => {
+        .then((response) => {
           setIsPatching(false);
           setAddComment(false);
-          setCommentIsAdded(true);
+          setCommentHasBeenAdded(response.data.comment.comment_id);
         })
         .catch((error) => {
           setIsError(true);
@@ -69,8 +73,8 @@ function AddComment({ article_id, commentIsAdded, setCommentIsAdded }) {
       ) : (
         <div className="add-comment-select">
           {!userIsLoggedIn ? (
-            <p>you must be logged in to add a comment</p>
-          ) : !commentIsAdded ? (
+            <p>you must be logged in to add or delete a comment</p>
+          ) : !commentHasBeenAdded ? (
             <button
               className="add-comment-button"
               onClick={() => setAddComment(true)}
