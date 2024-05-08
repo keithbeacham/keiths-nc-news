@@ -3,7 +3,7 @@ import { getComments } from "../api/api";
 import CommentItem from "./CommentItem";
 import AddComment from "./AddComment";
 
-function CommentsList({ article_id, username }) {
+function CommentsList({ article_id }) {
   const [comments, setComments] = useState([]);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -46,7 +46,6 @@ function CommentsList({ article_id, username }) {
           <div className="add-comment-page">
             <AddComment
               article_id={article_id}
-              username={username}
               commentIsAdded={commentIsAdded}
               setCommentIsAdded={setCommentIsAdded}
             />

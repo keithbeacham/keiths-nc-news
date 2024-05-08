@@ -30,5 +30,6 @@ export function getComments(article_id) {
 }
 
 export function postComment(article_id, comment) {
+  console.log(article_id, comment);
   return ncNewsAPI.post(`/articles/${article_id}/comments`, comment);
 }

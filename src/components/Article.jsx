@@ -1,17 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import ArticleHeader from "./ArticleHeader";
 import { getArticle } from "../api/api";
 import { useParams } from "react-router-dom";
 import CommentsList from "./CommentsList";
 import ArticleBody from "./ArticleBody";
+import { SourceContext } from "../contexts/Source";
 
-function Article({ username }) {
+function Article() {
   const [article, setArticle] = useState({});
   const [isError, setIsError] = useState(false);
   const [isLoading, setisLoading] = useState(true);
   const { article_id } = useParams();
+  const { source, setSource } = useContext(SourceContext);
 
   useEffect(() => {
+    setSource(`/article/${article_id}`);
+
     setIsError(false);
     setisLoading(true);
     getArticle(article_id)
@@ -38,7 +42,7 @@ function Article({ username }) {
             <ArticleHeader article={article} />
             <ArticleBody article={article} />
           </span>
-          <CommentsList article_id={article.article_id} username={username} />
+          <CommentsList article_id={article.article_id} />
         </span>
       )}
     </>

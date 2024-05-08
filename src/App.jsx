@@ -1,36 +1,31 @@
 import { useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Header from "./components/Header";
-import Welcome from "./components/Welcome";
+import Login from "./components/Login";
 import ArticleList from "./components/ArticleList";
 import Topics from "./components/Topics";
 import Profile from "./components/Profile";
 import Article from "./components/Article";
+import { UserProvider } from "./contexts/User";
+import { SourceProvider } from "./contexts/Source";
 
 function App() {
-  const [username, setUsername] = useState("");
   const [topic, setTopic] = useState("");
 
   return (
-    <>
-      {username ? (
-        <>
-          <Header />
-          <Routes>
-            <Route path="/home" element={<ArticleList topic={topic} />} />
-            <Route path="/articles" element={<ArticleList topic={topic} />} />
-            <Route
-              path="/article/:article_id"
-              element={<Article username={username} />}
-            />
-            <Route path="/profile" element={<Profile username={username} />} />
-            <Route path="/topics" element={<Topics />} />
-          </Routes>
-        </>
-      ) : (
-        <Welcome setUsername={setUsername} />
-      )}
-    </>
+    <UserProvider>
+      <SourceProvider>
+        <Header />
+        <Routes>
+          <Route path="/" element={<ArticleList topic={topic} />} />
+          <Route path="/articles" element={<ArticleList topic={topic} />} />
+          <Route path="/article/:article_id" element={<Article />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/topics" element={<Topics />} />
+        </Routes>
+      </SourceProvider>
+    </UserProvider>
   );
 }
 
