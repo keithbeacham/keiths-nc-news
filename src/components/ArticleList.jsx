@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { getAllArticles } from "../api/api";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ArticleHeader from "./ArticleHeader";
 
-function ArticleList({ topic }) {
+function ArticleList() {
   const [isError, setIsError] = useState(false);
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { topic } = useParams();
 
   useEffect(() => {
     setIsError(false);

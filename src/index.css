@@ -69,6 +69,66 @@ p ul li {
 body {
 }
 
+.topic-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.topic-list-title {
+  text-align: center;
+}
+.topic-item {
+  width: 400px;
+  /* height: 100%; */
+  /* min-height: 400px; */
+  background-color: bisque;
+  margin: 10px 5px 10px 5px;
+  padding: 0;
+  border-radius: 10px;
+  box-shadow: 0 3px 7px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.topic-item-header {
+  background-color: aquamarine;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0;
+}
+.topic-slug {
+  margin: 5px 0 5px 0;
+  color: black;
+}
+.topic-description {
+  margin: 5px 0 5px 0;
+}
+.topic-article-count {
+  margin: 10px 5px 5px 10px;
+}
+.topic-articles-box {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: auto;
+}
+.topic-article-title {
+  margin: 5px 10px 7px 10px;
+  padding: 3px 0 3px 0;
+  background-color: rgb(224, 221, 217);
+  border-radius: 5px;
+}
+.topic-button {
+  background-color: aquamarine;
+  text-align: center;
+  border-radius: 5px;
+  margin: 0;
+  padding: 8px 5px 8px 5px;
+  border: none;
+  width: 100%;
+}
 .article-list {
   list-style-type: none;
   display: flex;
