@@ -36,3 +36,7 @@ export function postComment(article_id, comment) {
 export function deleteComment(comment_id) {
   return ncNewsAPI.delete(`/comments/${comment_id}`);
 }
+
+export function getTopics() {
+  return ncNewsAPI.get("/topics");
+}

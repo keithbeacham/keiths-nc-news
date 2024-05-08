@@ -25,7 +25,7 @@ function Header() {
       )}
       <button className="header-button" key="home">
         <Link to="/articles" style={{ textDecoration: "none" }}>
-          articles
+          all articles
         </Link>
       </button>
       <button className="header-button" key="topics">
