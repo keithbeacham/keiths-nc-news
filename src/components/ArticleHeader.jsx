@@ -1,7 +1,7 @@
-function ArticleItem({ article }) {
+function ArticleHeader({ article }) {
   return (
-    <li className="article-item">
-      <p className="article-topic">{article.topic}</p>
+    <>
+      <div className="article-topic">{article.topic}</div>
       <h2 className="article-title" id={article.article_id}>
         {article.title}
       </h2>
@@ -11,9 +11,8 @@ function ArticleItem({ article }) {
         id={article.article_id}
         src={article.article_img_url}
       />
-      {article.body ? <p className="article-body">{article.body}</p> : null}
-    </li>
+    </>
   );
 }
 
-export default ArticleItem;
+export default ArticleHeader;

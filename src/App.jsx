@@ -19,7 +19,10 @@ function App() {
           <Routes>
             <Route path="/home" element={<ArticleList topic={topic} />} />
             <Route path="/articles" element={<ArticleList topic={topic} />} />
-            <Route path="/article/:article_id" element={<Article />} />
+            <Route
+              path="/article/:article_id"
+              element={<Article username={username} />}
+            />
             <Route path="/profile" element={<Profile username={username} />} />
             <Route path="/topics" element={<Topics />} />
           </Routes>

@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import ArticleItem from "./ArticleItem";
+import ArticleHeader from "./ArticleHeader";
 import { getArticle } from "../api/api";
 import { useParams } from "react-router-dom";
 import CommentsList from "./CommentsList";
+import ArticleBody from "./ArticleBody";
 
-function Article() {
+function Article({ username }) {
   const [article, setArticle] = useState({});
   const [isError, setIsError] = useState(false);
   const [isLoading, setisLoading] = useState(true);
@@ -32,10 +33,13 @@ function Article() {
       ) : isError ? (
         <p>Oops - something has gone wrong !</p>
       ) : (
-        <p className="article-page">
-          <ArticleItem article={article} />
-          <CommentsList article_id={article.article_id} />
-        </p>
+        <span className="article-page">
+          <span className="article-item">
+            <ArticleHeader article={article} />
+            <ArticleBody article={article} />
+          </span>
+          <CommentsList article_id={article.article_id} username={username} />
+        </span>
       )}
     </>
   );

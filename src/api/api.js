@@ -22,6 +22,13 @@ export function getArticle(article_id) {
   return ncNewsAPI.get(`/articles/${article_id}`);
 }
 
+export function patchArticle(article_id, inc_votes) {
+  return ncNewsAPI.patch(`/articles/${article_id}`, { inc_votes });
+}
 export function getComments(article_id) {
   return ncNewsAPI.get(`/articles/${article_id}/comments`);
+}
+
+export function postComment(article_id, comment) {
+  return ncNewsAPI.post(`/articles/${article_id}/comments`, comment);
 }

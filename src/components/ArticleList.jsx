@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllArticles } from "../api/api";
-import ArticleItem from "./ArticleItem";
 import { Link, Navigate } from "react-router-dom";
+import ArticleHeader from "./ArticleHeader";
 
 function ArticleList({ topic }) {
   const [isError, setIsError] = useState(false);
@@ -39,8 +39,11 @@ function ArticleList({ topic }) {
                 to={`/article/${article.article_id}`}
                 style={{ textDecoration: "none", color: "black" }}
                 key={article.article_id}
+                className="article-item"
               >
-                <ArticleItem article={article} />
+                <li>
+                  <ArticleHeader article={article} />
+                </li>
               </Link>
             );
           })}
