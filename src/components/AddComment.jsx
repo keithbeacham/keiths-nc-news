@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { postComment } from "../api/api";
+import AddCommentForm from "./AddCommentForm";
 
 function AddComment({
   article_id,
@@ -11,11 +12,6 @@ function AddComment({
   const [isPatching, setIsPatching] = useState(false);
   const [isError, setIsError] = useState(false);
   const [addComment, setAddComment] = useState(false);
-
-  function handleChange(event) {
-    setCommentBody(event.target.value);
-    setIsError(false);
-  }
 
   function submitComment(action) {
     if (!action) {
@@ -40,22 +36,12 @@ function AddComment({
     <>
       {addComment ? (
         <>
-          <form
-            className="add-comment-form"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <label htmlFor="add-comment-body" className="add-comment-label">
-              Comment:
-            </label>
-            <textarea
-              id="add-comment-body"
-              value={commentBody}
-              onChange={(e) => handleChange(e)}
-              placeholder="type your comment here"
-              className="add-comment-input"
-              required
-            />
-          </form>
+          <AddCommentForm
+            commentBody={commentBody}
+            setCommentBody={setCommentBody}
+            setIsError={setIsError}
+          />
+
           <div className="add-comment-select">
             <button
               className="add-comment-button"
