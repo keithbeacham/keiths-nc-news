@@ -4,12 +4,10 @@ const ncNewsAPI = axios.create({
   baseURL: "https://keiths-be-nc-news.onrender.com/api",
 });
 
-export function getAllArticles(topic) {
-  let params = {};
+export function getAllArticles(topic, sort_by, order) {
+  const params = { params: { sort_by, order } };
   if (topic) {
-    params = { params: { topic } };
-  } else {
-    params = {};
+    params.params.topic = topic;
   }
   return ncNewsAPI.get("/articles", params);
 }
