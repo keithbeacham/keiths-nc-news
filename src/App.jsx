@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Login from "./components/Login";
 import ArticleList from "./components/ArticleList";
@@ -8,6 +7,7 @@ import Profile from "./components/Profile";
 import Article from "./components/Article";
 import { UserProvider } from "./contexts/User";
 import { SourceProvider } from "./contexts/Source";
+import PageNotFound from "./components/Error";
 
 function App() {
   return (
@@ -22,6 +22,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/topics" element={<Topics />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </SourceProvider>
     </UserProvider>

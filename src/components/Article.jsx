@@ -8,15 +8,14 @@ import { SourceContext } from "../contexts/Source";
 
 function Article() {
   const [article, setArticle] = useState({});
-  const [isError, setIsError] = useState(false);
+  const [isError, setIsError] = useState("");
   const [isLoading, setisLoading] = useState(true);
   const { article_id } = useParams();
   const { source, setSource } = useContext(SourceContext);
 
   useEffect(() => {
     setSource(`/article/${article_id}`);
-
-    setIsError(false);
+    setIsError("");
     setisLoading(true);
     getArticle(article_id)
       .then((response) => {
@@ -24,7 +23,11 @@ function Article() {
         setisLoading(false);
       })
       .catch((error) => {
-        setIsError(true);
+        if (error.code === "ERR_BAD_REQUEST") {
+          setIsError("we no longer have that article");
+        } else {
+          setIsError("please try again");
+        }
         setisLoading(false);
       });
   }, []);
@@ -34,7 +37,10 @@ function Article() {
       {isLoading ? (
         <p>Loading...</p>
       ) : isError ? (
-        <p>Oops - something has gone wrong !</p>
+        <div className="error-invalid-url-page">
+          <p>Oops - something has gone wrong !</p>
+          <p>{isError}</p>
+        </div>
       ) : (
         <span className="article-page">
           <span className="article-item">
