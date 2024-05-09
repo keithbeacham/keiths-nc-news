@@ -140,18 +140,18 @@ body {
   text-align: center;
 }
 .article-page {
-  max-height: 600px;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  margin: 0 5px 0 5px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
 }
 .article-item {
-  width: 250px;
-  /* min-height: 400px; */
+  width: 350px;
+  max-height: 600px;
+  margin: 0 5px 0 5px;
   background-color: bisque;
   margin: 5px 5px 5px 5px;
-  padding: 0 20px 20px 20px;
+  padding: 0;
   border-radius: 10px;
   box-shadow: 0 3px 7px 0px;
   display: flex;
@@ -164,25 +164,32 @@ body {
   font-family: "Courier New", Courier, monospace;
   font-size: 1.2em;
   background-color: aquamarine;
-  padding: 0 0 5px 0;
+  padding: 5px 0 5px 0;
   margin: 5pxpx 5px 5px 5px;
   border-radius: 5px;
 }
 .article-title {
   margin: 10px 0 0 0;
+  padding: 0 20px 0 20px;
 }
 .article-image {
-  width: 250px;
+  width: 100%;
   height: max 380px;
   border-radius: 5px;
 }
 .article-text {
-  padding: 5px 5px 5px 5px;
+  padding: 5px 5px 5px 20px;
   margin: 0;
 }
-
+.article-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(221, 219, 219);
+  border-radius: 5px;
+}
 .article-body {
-  padding: 5px 0 5px 0;
+  padding: 5px 20px 5px 20px;
   margin: 10px 0 10px 0;
   overflow: auto;
 }
@@ -192,10 +199,11 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 5px 0 5px 0;
 }
 
 .comments-page {
-  width: 250px;
+  width: 310px;
   background-color: bisque;
   margin: 5px 5px 5px 5px;
   padding: 0 20px 20px 20px;

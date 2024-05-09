@@ -10,15 +10,13 @@ import { UserProvider } from "./contexts/User";
 import { SourceProvider } from "./contexts/Source";
 
 function App() {
-  const [topic, setTopic] = useState("");
-
   return (
     <UserProvider>
       <SourceProvider>
         <Header />
         <Routes>
-          <Route path="/" element={<ArticleList topic={topic} />} />
-          <Route path="/articles" element={<ArticleList topic={topic} />} />
+          <Route path="/" element={<ArticleList />} />
+          <Route path="/articles" element={<ArticleList />} />
           <Route path="/articles/:topic" element={<ArticleList />} />
           <Route path="/article/:article_id" element={<Article />} />
           <Route path="/login" element={<Login />} />
