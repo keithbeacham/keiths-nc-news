@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getTopics, getAllArticles } from "../api/api";
 import { Link, useParams } from "react-router-dom";
 import ArticleHeader from "./ArticleHeader";
+import { sortByComments } from "../utils/sort-by-comments";
 
 function ArticleList() {
   const [isError, setIsError] = useState(false);
@@ -52,20 +53,6 @@ function ArticleList() {
     }
   }, [topic, sort_by, order]);
 
-  function sortByComments(sortOrder, articlesToSort) {
-    const sortedArticles = [...articlesToSort];
-    if (sortOrder === "DESC") {
-      sortedArticles.sort((a, b) => {
-        return b.comment_count - a.comment_count;
-      });
-    } else {
-      sortedArticles.sort((a, b) => {
-        return a.comment_count - b.comment_count;
-      });
-    }
-    return sortedArticles;
-  }
-
   return (
     <>
       {urlIsWrong ? (
@@ -102,36 +89,37 @@ function ArticleList() {
               <option value="ASC">last</option>
             </select>
           </div>
-          {isLoading ? (
-            <p>Loading...</p>
-          ) : isError ? (
-            <p>Oops - something has gone wrong !</p>
-          ) : (
-            <ul className="article-list">
-              {articles.map((article) => {
-                return (
-                  <Link
-                    to={`/article/${article.article_id}`}
-                    style={{ textDecoration: "none", color: "black" }}
-                    key={article.article_id}
-                    className="article-item"
-                  >
-                    <li>
-                      <ArticleHeader article={article} />
-                      <div className="article-footer">
-                        <span className="article-text">
-                          {article.comment_count} comments
-                        </span>
-                        <span className="article-text">
-                          {article.votes} votes
-                        </span>
-                      </div>
-                    </li>
-                  </Link>
-                );
-              })}
-            </ul>
-          )}
+          <div className="article-list-page">
+            {isLoading ? (
+              <p>Loading...</p>
+            ) : isError ? (
+              <p>Oops - something has gone wrong !</p>
+            ) : (
+              <ul className="article-list-page">
+                {articles.map((article) => {
+                  return (
+                    <Link
+                      to={`/article/${article.article_id}`}
+                      style={{ textDecoration: "none", color: "black" }}
+                      key={article.article_id}
+                    >
+                      <li className="article-item">
+                        <ArticleHeader article={article} />
+                        <div className="article-footer">
+                          <span className="article-text">
+                            {article.comment_count} comments
+                          </span>
+                          <span className="article-text">
+                            {article.votes} votes
+                          </span>
+                        </div>
+                      </li>
+                    </Link>
+                  );
+                })}
+              </ul>
+            )}
+          </div>
         </>
       )}
     </>
