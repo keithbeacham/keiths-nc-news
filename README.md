@@ -1,7 +1,7 @@
 Keiths-nc-news
 
 link to hosted version: https://keiths-nc-news.netlify.app
-A front-end web application that renders a set of news articles. The user can list all articles or choose a topic and just list the srticles under that topic. They can also comment on an article or vote for an article. The articles can be ordered by most/least recent, most/least popular or most/least commented on.
+A front-end web application that renders a set of news articles. The user can list all articles or choose a topic and just list the srticles under that topic. They can also comment on an article or vote for an article. The articles can be ordered by most/least recent, most/least popular or most/least commented on. The code is available on github at https://github.com/keithbeacham/keiths-nc-news.
 
 The site uses the keiths-be-nc-news backend which is deployed using Render for the API and elephantSQL for the database. The API is available at https://keiths-be-nc-news.onrender.com/api/ and can be viewed at https://github.com/keithbeacham/keiths-be-nc-news. The project readme gives more detail on the project and the API endpoints.
 
@@ -23,5 +23,7 @@ The application has been developed mobile-first as part of the Northcoders softw
 
 Wireframes and a component tree can be viewed under ./Planning. Code is under ./src in subdirectories api, components, contexts, utils.
 
-To set up and run a local version: requires vite v5.2.0, axios v1.6.8, react v18.2.0, react-dom v18.3.1, react-router v6.23.0, react-router-dom v6.23.0, @vitejs/plugin-react v4.2.1
-download from github and run "npm install" then "npm install cors" and then "npm run dev" to start up the local host: the localhost URL will be displayed for access.
+To set up and run a local version:
+requires node v21.6.2, vite v5.2.0, axios v1.6.8, react v18.2.0, react-dom v18.3.1, react-router v6.23.0, react-router-dom v6.23.0, @vitejs/plugin-react v4.2.1.
+
+    Clone the repository from github "git clone https://github.com/keithbeacham/keiths-nc-news" then "cd keiths-nc-news" and run "npm install" then "npm install cors" and then "npm run dev" to start up the local host: the localhost URL will be displayed for access.
