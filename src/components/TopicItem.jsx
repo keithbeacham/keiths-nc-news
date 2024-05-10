@@ -30,8 +30,8 @@ function TopicItem({ topic }) {
         style={{ textDecoration: "none", color: "black" }}
         className="topic-item-header"
       >
-        <h2 className="topic-slug">{topic.slug}</h2>
-        <p className="topic-description">{topic.description}</p>
+        <h2 id="topic-slug">{topic.slug}</h2>
+        <p id="topic-description">{topic.description}</p>
       </Link>
       {isLoading ? (
         <p style={{ fontSize: "large", padding: "10px" }}>
@@ -43,7 +43,7 @@ function TopicItem({ topic }) {
         </p>
       ) : (
         <>
-          <h3 className="topic-article-count">{articleCount} articles:</h3>
+          <h3 id="topic-article-count">{articleCount} articles:</h3>
           <ul className="topic-articles-box">
             {articles.map((article) => {
               return (
