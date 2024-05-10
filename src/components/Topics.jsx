@@ -25,15 +25,21 @@ function Topics() {
       <h1 className="topic-list-title" key="topic-list-title">
         topics list
       </h1>
-      <ul className="topic-list">
-        {topics.map((topic) => {
-          return (
-            <li key={topic.slug}>
-              <TopicItem topic={topic} className="topic-item" />
-            </li>
-          );
-        })}
-      </ul>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : isError ? (
+        <p>Oops - something has gone wrong !</p>
+      ) : (
+        <ul className="topic-list">
+          {topics.map((topic) => {
+            return (
+              <li key={topic.slug}>
+                <TopicItem topic={topic} className="topic-item" />
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </>
   );
 }
