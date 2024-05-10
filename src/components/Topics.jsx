@@ -14,21 +14,23 @@ function Topics() {
         setIsLoading(false);
       })
       .catch((error) => {
-        console.log(error);
         setIsError(true);
         setIsLoading(false);
       });
   }, []);
 
   return (
-    <>
-      <h1 className="topic-list-title" key="topic-list-title">
-        topics list
-      </h1>
+    <div className="topic-list-container">
+      <h1 className="topic-list-title">topics list</h1>
       {isLoading ? (
-        <p>Loading...</p>
+        <div className="error-invalid-url-page">
+          <h2>loading...</h2>
+        </div>
       ) : isError ? (
-        <p>Oops - something has gone wrong !</p>
+        <div className="error-invalid-url-page">
+          <p>Oops - something has gone wrong !</p>
+          <p>please try again</p>
+        </div>
       ) : (
         <ul className="topic-list">
           {topics.map((topic) => {
@@ -40,7 +42,7 @@ function Topics() {
           })}
         </ul>
       )}
-    </>
+    </div>
   );
 }
 

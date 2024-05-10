@@ -41,7 +41,7 @@ function CommentItem({ comment, setCommentHasBeenDeleted }) {
       ) : isError ? (
         <p className="comment-votes">database error - try again</p>
       ) : (
-        <p className="comment-votes">Votes: {comment.votes}</p>
+        <p className="comment-votes">votes: {comment.votes}</p>
       )}
     </>
   );
