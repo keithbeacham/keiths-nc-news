@@ -10,6 +10,7 @@ function TopicItem({ topic }) {
 
   useEffect(() => {
     setIsError(false);
+    setIsLoading(true);
     getAllArticles(topic.slug)
       .then((response) => {
         setArticles(response.data.articles);
@@ -33,9 +34,13 @@ function TopicItem({ topic }) {
         <p className="topic-description">{topic.description}</p>
       </Link>
       {isLoading ? (
-        <p>loading article data...</p>
+        <p style={{ fontSize: "large", padding: "10px" }}>
+          loading article data...
+        </p>
       ) : isError ? (
-        <p>Oops an error has occurred, please try again</p>
+        <p style={{ fontSize: "large", padding: "10px" }}>
+          Oops an error has occurred, please try again
+        </p>
       ) : (
         <>
           <h3 className="topic-article-count">{articleCount} articles:</h3>
@@ -63,7 +68,7 @@ function TopicItem({ topic }) {
         to={`/articles/${topic.slug}`}
         style={{ textDecoration: "none", color: "black" }}
       >
-        <button className="topic-button">Select</button>
+        <button className="topic-button">select</button>
       </Link>
     </div>
   );

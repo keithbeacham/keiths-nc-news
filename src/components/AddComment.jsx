@@ -1,7 +1,9 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { postComment } from "../api/api";
 import AddCommentForm from "./AddCommentForm";
 import { UserContext } from "../contexts/User";
+import { Link } from "react-router-dom";
+import { SourceContext } from "../contexts/Source";
 
 function AddComment({
   article_id,
@@ -13,7 +15,12 @@ function AddComment({
   const [isPatching, setIsPatching] = useState(false);
   const [isError, setIsError] = useState(false);
   const [addComment, setAddComment] = useState(false);
+  const { setSource } = useContext(SourceContext);
   let userIsLoggedIn = user ? true : false;
+
+  useEffect(() => {
+    setSource(`/article/${article_id}`);
+  }, []);
 
   function submitComment(action) {
     if (!action) {
@@ -73,7 +80,12 @@ function AddComment({
       ) : (
         <div className="add-comment-select">
           {!userIsLoggedIn ? (
-            <p>you must be logged in to add or delete a comment</p>
+            <Link
+              to={`/login`}
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <p>you must be logged in to add or delete a comment</p>
+            </Link>
           ) : !commentHasBeenAdded ? (
             <button
               className="add-comment-button"

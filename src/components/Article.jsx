@@ -11,7 +11,7 @@ function Article() {
   const [isError, setIsError] = useState("");
   const [isLoading, setisLoading] = useState(true);
   const { article_id } = useParams();
-  const { source, setSource } = useContext(SourceContext);
+  const { setSource } = useContext(SourceContext);
 
   useEffect(() => {
     setSource(`/article/${article_id}`);
@@ -35,7 +35,9 @@ function Article() {
   return (
     <span className="article-list-page">
       {isLoading ? (
-        <p>Loading...</p>
+        <div className="error-invalid-url-page">
+          <h2>loading...</h2>
+        </div>
       ) : isError ? (
         <div className="error-invalid-url-page">
           <p>Oops - something has gone wrong !</p>
