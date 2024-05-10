@@ -122,15 +122,15 @@ li {
   border-radius: 10px;
   margin: 0;
 }
-.topic-slug {
+#topic-slug {
   font-family: "Courier New", Courier, monospace;
   font-size: 2em;
   margin: 5px 0 5px 0;
 }
-.topic-description {
+#topic-description {
   margin: 5px 0 5px 0;
 }
-.topic-article-count {
+#topic-article-count {
   margin: 10px 5px 5px 10px;
 }
 .topic-articles-box {
