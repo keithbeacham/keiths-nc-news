@@ -1,6 +1,6 @@
-:root {
-}
-p ul li {
+p,
+ul,
+li {
   margin: 0;
   padding: 0;
 }
@@ -10,7 +10,7 @@ p ul li {
   font-weight: bold;
 }
 .login-page {
-  background-image: url("./images/leeds.png");
+  background-image: url("leeds.png");
   background-size: cover;
   background-color: rgb(3, 3, 121);
   width: 100%;
@@ -42,6 +42,9 @@ p ul li {
   padding: 5px 10px 5px 10px;
   text-decoration: none;
   background-color: white;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgb(114, 113, 113);
 }
 .header-login-button {
   display: inline-block;
@@ -50,16 +53,21 @@ p ul li {
   background-color: red;
   color: white;
   border-radius: 5px;
+  border: none;
+  box-shadow: 2px 2px 5px rgb(114, 113, 113);
 }
 .header-profile-button {
   display: inline-block;
   padding: 5px 10px 5px 10px;
   text-decoration: none;
-  background-color: blue;
+  background-color: rgb(88, 88, 248);
   color: white;
+  border: none;
   border-radius: 5px;
+  box-shadow: 2px 2px 5px rgb(114, 113, 113);
 }
 .user-profile-page {
+  text-align: center;
 }
 .user-profile-text {
   text-align: center;
@@ -70,8 +78,6 @@ p ul li {
   display: block;
   padding: 20px 0 0 0;
   margin: 0 auto 0 auto;
-}
-body {
 }
 
 .topic-list {
@@ -86,8 +92,6 @@ body {
 }
 .topic-item {
   width: 400px;
-  /* height: 100%; */
-  /* min-height: 400px; */
   background-color: bisque;
   margin: 10px 5px 10px 5px;
   padding: 0;
@@ -134,34 +138,43 @@ body {
   border: none;
   width: 100%;
 }
-.article-list {
-  list-style-type: none;
+.article-list-header {
+  text-align: center;
+  min-height: 20px;
+  margin: 20px 0 20px 0;
+}
+
+.article-list-title {
+  margin: 20px 0 5px 0;
+}
+.article-list-page {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
-.article-list-title {
-  text-align: center;
-}
 .article-page {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  justify-content: center;
   align-content: center;
 }
+
 .article-item {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0;
   width: 350px;
-  max-height: 600px;
-  margin: 0 5px 0 5px;
+  min-height: 450px;
+  max-height: 700px;
   background-color: bisque;
-  margin: 5px 5px 5px 5px;
+  margin: 10px 10px 10px 10px;
   padding: 0;
   border-radius: 10px;
   box-shadow: 0 3px 7px 0px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 .article-topic {
   width: 100%;
@@ -170,7 +183,7 @@ body {
   font-size: 1.2em;
   background-color: aquamarine;
   padding: 5px 0 5px 0;
-  margin: 5pxpx 5px 5px 5px;
+  margin: 0 0 5px 0;
   border-radius: 5px;
 }
 .article-title {
@@ -192,6 +205,7 @@ body {
   justify-content: space-between;
   background-color: rgb(221, 219, 219);
   border-radius: 5px;
+  padding: 5px 5px 5px 0;
 }
 .article-body {
   padding: 5px 20px 5px 20px;
@@ -204,14 +218,24 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   padding: 5px 0 5px 0;
+  border-radius: 10px;
+}
+.article-votes-button {
+  border-radius: 5px;
+  padding: 5px 5px 5px 5px;
+  margin: 0 5px 0 5px;
+  background-color: white;
+  box-shadow: 2px 2px 5px rgb(114, 113, 113);
+  border: none;
 }
 
 .comments-page {
   width: 310px;
   background-color: bisque;
-  margin: 5px 5px 5px 5px;
-  padding: 0 20px 20px 20px;
+  margin: 10px 10px 10px 10px;
+  padding: 0 20px 10px 20px;
   border-radius: 10px;
   box-shadow: 0 3px 7px 0px;
   display: flex;

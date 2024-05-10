@@ -26,6 +26,7 @@ function ArticleBody({ article }) {
       <p className="article-body">{article.body}</p>
       <div className="article-votes">
         <button
+          className="article-votes-button"
           onClick={() => {
             handleVote(0);
           }}
@@ -40,6 +41,7 @@ function ArticleBody({ article }) {
           <span>{vote + article.votes} votes</span>
         )}
         <button
+          className="article-votes-button"
           onClick={() => {
             handleVote(1);
           }}

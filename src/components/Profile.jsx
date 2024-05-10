@@ -25,7 +25,7 @@ function Profile() {
   return (
     <>
       {user ? (
-        <div className="user-profile">
+        <div className="user-profile-page">
           <h1>Your user profile page</h1>
           {isLoading ? (
             <p>Loading...</p>

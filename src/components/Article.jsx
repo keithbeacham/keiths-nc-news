@@ -33,7 +33,7 @@ function Article() {
   }, []);
 
   return (
-    <>
+    <span className="article-list-page">
       {isLoading ? (
         <p>Loading...</p>
       ) : isError ? (
@@ -42,15 +42,17 @@ function Article() {
           <p>{isError}</p>
         </div>
       ) : (
-        <span className="article-page">
-          <span className="article-item">
-            <ArticleHeader article={article} />
-            <ArticleBody article={article} />
+        <>
+          <span className="article-page">
+            <span className="article-item">
+              <ArticleHeader article={article} />
+              <ArticleBody article={article} />
+            </span>
+            <CommentsList article_id={article.article_id} />
           </span>
-          <CommentsList article_id={article.article_id} />
-        </span>
+        </>
       )}
-    </>
+    </span>
   );
 }
 export default Article;
