@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { postComment } from "../api/api";
 import AddCommentForm from "./AddCommentForm";
 import { UserContext } from "../contexts/User";
-import { Link } from "react-router-dom";
-import { SourceContext } from "../contexts/Source";
+import { Link, useLocation } from "react-router-dom";
 
 function AddComment({
   article_id,
@@ -15,11 +14,17 @@ function AddComment({
   const [isPatching, setIsPatching] = useState(false);
   const [isError, setIsError] = useState(false);
   const [addComment, setAddComment] = useState(false);
-  const { setSource } = useContext(SourceContext);
   let userIsLoggedIn = user ? true : false;
+  const location = useLocation();
+  const addButtonPosition = useRef(null);
 
   useEffect(() => {
-    setSource(`/article/${article_id}`);
+    if (location.state) {
+      addButtonPosition.current.scrollIntoView({
+        block: "end",
+        behavior: "smooth",
+      });
+    }
   }, []);
 
   function submitComment(action) {
@@ -78,13 +83,18 @@ function AddComment({
           </div>
         </>
       ) : (
-        <div className="add-comment-select">
+        <div className="add-comment-select" ref={addButtonPosition}>
           {!userIsLoggedIn ? (
             <Link
               to={`/login`}
+              state={{
+                previous: `/article/${article_id}`,
+              }}
               style={{ textDecoration: "none", color: "black" }}
             >
-              <p>you must be logged in to add or delete a comment</p>
+              <button id="comment-login-button">
+                log in to add or delete a comment
+              </button>
             </Link>
           ) : !commentHasBeenAdded ? (
             <button

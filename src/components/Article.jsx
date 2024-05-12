@@ -4,17 +4,14 @@ import { getArticle } from "../api/api";
 import { useParams } from "react-router-dom";
 import CommentsList from "./CommentsList";
 import ArticleBody from "./ArticleBody";
-import { SourceContext } from "../contexts/Source";
 
 function Article() {
   const [article, setArticle] = useState({});
   const [isError, setIsError] = useState("");
   const [isLoading, setisLoading] = useState(true);
   const { article_id } = useParams();
-  const { setSource } = useContext(SourceContext);
 
   useEffect(() => {
-    setSource(`/article/${article_id}`);
     setIsError("");
     setisLoading(true);
     getArticle(article_id)
