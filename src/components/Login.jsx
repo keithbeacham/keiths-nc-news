@@ -7,7 +7,6 @@ function Login() {
   const username = "grumpy19";
   const location = useLocation();
   let previous = "";
-  console.log(location.state);
 
   if (location.state) {
     previous = location.state.previous;

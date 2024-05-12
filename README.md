@@ -17,7 +17,7 @@ There is a common header available on every page which allows the user to naviga
 
 Error handling includes incorrect URLs, incorrect :article_id or :topic. All calls to the API are rendered optimistically, with a loading message displayed and an error message if there is a problem.
 
-The application is built as a series of React Components. State is distributed through a combination of Component props, React Context and URL parameters. Communication with the backend API uses CORS cross origin resource sharing.
+The application is built as a series of React Components. State is distributed through a combination of Component props, React Context, Link state and URL parameters. Communication with the backend API uses CORS cross origin resource sharing.
 
 The application has been developed mobile-first as part of the Northcoders software development bootcamp. The development took place over 4 days and is entirely my own work.
 
